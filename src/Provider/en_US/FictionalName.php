@@ -60,7 +60,13 @@ class FictionalName extends \Faker\Provider\Base
 		'me', 'gan',  
 	);
 
-	public function fictionalName() {
+	/**
+	 * A random fictional name.
+	 * @return string
+	 */
+
+	public function fictionalName() 
+	{
 
 		$name = implode(static::randomElements(static::$syllables, static::numberBetween(2, 3), true));
 		$name = $this->checkEndings($name);
@@ -69,6 +75,10 @@ class FictionalName extends \Faker\Provider\Base
 		return ucfirst($name);
 	}
 
+	/**
+	 * Verify that endings are allowed.
+	 * @return string
+	 */
 	public function checkEndings($name) {
 
 		foreach (static::$cannotEndWith as $ending) {
@@ -81,6 +91,10 @@ class FictionalName extends \Faker\Provider\Base
 
 	}
 
+	/**
+	 * Verify that beginnings are allowed.
+	 * @return string
+	 */
 	public function checkBeginnings($name) {
 
 		foreach (static::$cannotBeginWith as $beginning) {                                                                                                                              
